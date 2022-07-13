@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   handleButtonClickIncrease = () => {
-    if (this.state.count<Teams.length-1) {
+    if (this.state.count<Teams.length) {
       this.setState({ count: this.state.count + 1 })
     }
   }
@@ -41,20 +41,27 @@ class App extends React.Component {
 
   
       <section className="info">
-        {Teams.map(team => {
-          return (
-            <TeamInfo
-              shortName = {team.shortName}
-              logo = {team.crestUrl}
-              stadium = {team.venue}
-              address = {team.address}
-              email = {team.email}
-              phone = {team.phone}
-              birth = {team.founded}
-            />
-          )
-          })
-        }
+        {Teams
+          .filter((Teams, i) => i < this.state.count)
+          .map((team) => {
+        return <TeamInfo team={team} />
+
+        {/* {Teams
+          .slice(0, this.state.count)
+          .map((team) => {
+          return <TeamInfo team={team} /> */}
+
+            // <TeamInfo
+            //   shortName = {team.shortName}
+            //   logo = {team.crestUrl}
+            //   stadium = {team.venue}
+            //   address = {team.address}
+            //   email = {team.email}
+            //   phone = {team.phone}
+            //   birth = {team.founded}
+            // />
+          
+          })}
       </section>
     </>
   )
