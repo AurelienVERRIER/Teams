@@ -14,11 +14,15 @@ class App extends React.Component {
   }
 
   handleButtonClickSubstract = () => {  
-    this.setState({ count: this.state.count - 1 })
+    if (this.state.count>1) {
+      this.setState({ count: this.state.count - 1 })
+    }
   }
 
   handleButtonClickIncrease = () => {
-    this.setState({ count: this.state.count + 1 })
+    if (this.state.count<Teams.length-1) {
+      this.setState({ count: this.state.count + 1 })
+    }
   }
 
 
