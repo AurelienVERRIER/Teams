@@ -11,13 +11,13 @@ class App extends React.Component {
       {Teams.map(team => {
         return (
           <section className="info">
-            <p>{team.shortName}</p>
-            <p>{team.crestUrl}</p>
-            <p>{team.venue}</p>
-            <p>{team.address}</p>
-            <p>{team.email}</p>
-            <p>{team.phone}</p>
-            <p>{team.founded}</p>
+            <h1>{team.shortName}</h1>
+            <img src={team.crestUrl} alt="Team_Logo" />
+            <p>Stadium: {team.venue}</p>
+            <p>Address: {team.address}</p>
+            <p>Email: {team.email}</p>
+            <p>Phone: {team.phone}</p>
+            <p>Created in {team.founded}</p>
           </section>
         )
       })}
